@@ -3,7 +3,6 @@
 namespace DNADesign\ElementalVirtual\Tests;
 
 use DNADesign\Elemental\Models\BaseElement;
-use DNADesign\Elemental\Models\ElementalArea;
 use DNADesign\Elemental\Tests\Src\TestElement;
 use DNADesign\Elemental\Tests\Src\TestPage;
 use DNADesign\ElementalVirtual\Model\ElementVirtual;
@@ -24,7 +23,7 @@ class BaseElementExtensionTest extends SapphireTest
         parent::setUp();
 
         Config::modify()->set('Page', 'can_be_root', true);
-        
+
         $this->page = $this->objFromFixture(TestPage::class, 'page1');
         $this->page->publishRecursive();
     }
@@ -45,7 +44,7 @@ class BaseElementExtensionTest extends SapphireTest
 
         // should show that this element has virtual clones
         $list = $linked->getCMSFields()->dataFieldByName('VirtualClones')->getList();
-        
+
         $this->assertEquals(1, $list->count());
     }
 }
